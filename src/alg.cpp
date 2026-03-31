@@ -30,7 +30,7 @@ int findDigit(int *arr, int lbound, int rbound, int value) {
   else return findDigit(arr, lbound, index - 1, value);
 }
 
-// линейный поиск количества value начинающийся с индекса, найденного findDigit()
+// лин поиск кол-ва value начинающийся с индекса, найденного findDigit()
 int countDigit(int *arr, int len, int value) {
   int count = 1;
   int index = findDigit(arr, 0, len, value);
