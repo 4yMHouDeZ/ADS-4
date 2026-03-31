@@ -30,7 +30,7 @@ int findDigit(int *arr, int lbound, int rbound, int value) {
   else return findDigit(arr, lbound, index - 1, value);
 }
 
-// линейный поиск количества value начинающийся с индекса, найденного функцией findDigit()
+// линейный поиск количества value начинающийся с индекса, найденного findDigit()
 int countDigit(int *arr, int len, int value) {
   int count = 1;
   int index = findDigit(arr, 0, len, value);
@@ -55,11 +55,11 @@ int countPairs3(int *arr, int len, int value) {
     len--;
   }
 
-  int i = 0;
+  int n = 0;
   // цикл до половины от value
-  while (arr[i] < value / 2) {
-    count += countDigit(arr, len, value - arr[i]);
-    i++;
+  while (arr[n] < value / 2) {
+    count += countDigit(arr, len, value - arr[n]);
+    n++;
   }
   // добавляем пары с половинами от value
   if (value % 2 == 0) {
