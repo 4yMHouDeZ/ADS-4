@@ -10,7 +10,9 @@ int countPairs1(int *arr, int len, int value) {
 }
 int countPairs2(int *arr, int len, int value) {
   int count = 0;
-  while (arr[len-1] > value && len >= 0) { len--; }
+  while (arr[len-1] > value && len >= 0) {
+    len--;
+  }
   for (int i = 0; i < len; i++) {
     for (int j = i + 1; j < len; j++) {
       if (arr[i] + arr[j] == value) count++;
@@ -28,7 +30,7 @@ int findDigit(int *arr, int lbound, int rbound, int value) {
   else return findDigit(arr, lbound, index - 1, value);
 }
 
-// линейный поиск количества чисел value в массиве arr начинающийся с индекса, найденного функцией findDigit()
+// линейный поиск количества value начинающийся с индекса, найденного функцией findDigit()
 int countDigit(int *arr, int len, int value) {
   int count = 1;
   int index = findDigit(arr, 0, len, value);
@@ -49,7 +51,9 @@ int countDigit(int *arr, int len, int value) {
 int countPairs3(int *arr, int len, int value) {
   int count = 0;
   // убираем лишние
-  while (arr[len-1] > value && len > 0) { len--; }
+  while (arr[len-1] > value && len > 0) {
+    len--;
+  }
 
   int i = 0;
   // цикл до половины от value
@@ -60,7 +64,9 @@ int countPairs3(int *arr, int len, int value) {
   // добавляем пары с половинами от value
   if (value % 2 == 0) {
     int temp = countDigit(arr, len, value / 2);
-    for (int i = temp - 1; i > 0; i--) { count += i; }
+    for (int i = temp - 1; i > 0; i--) {
+      count += i;
+    }
   }
   return count;
 }
